@@ -29,9 +29,26 @@
 			margin: 0;
 			padding: 0;
 		}
+		& h1 {
+			font-size: 1.4rem;
+			margin-inline-end: auto;
+		}
+		& h2 {
+			font-size: 1.2rem;
+			color: #666;
+		}
 
 		& main {
 			margin-inline: max(20px, calc((100% - 400px) / 2));
+		}
+
+		& .header {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			padding-block: 5px 10px;
+			border-bottom: 1px solid #00000022;
+			margin-block-end: 20px;
 		}
 
 		& .box {
@@ -39,13 +56,33 @@
 			background-color: #f9f9f9;
 			border-radius: 8px;
 			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-block-end: 20px;
+			margin-block-end: 20px;
+			& fieldset {
+				border: none;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				padding: 0;
+			}
+			& input {
+				width: 100%;
+				padding: 10px;
+				margin: 10px 0;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				transition: border-color 0.3s;
+			}
+
+			& input:focus {
+				border-color: #007bff;
+				outline: none;
+			}
 		}
 
 		/* Button styles */
 		& button {
 			cursor: pointer;
-            font-weight: bold;
+			font-weight: bold;
 			/* Change the cursor to pointer for buttons */
 		}
 
@@ -109,7 +146,7 @@
 			border-radius: 4px;
 			cursor: pointer;
 			transition: all 0.3s;
-            flex-shrink: 0;
+			flex-shrink: 0;
 		}
 
 		& button:hover {

@@ -8,7 +8,7 @@
 	let user: User | null = null;
 	let groupName = '';
 	let groupId = '';
-	let userGroups: { id: string; name: string }[] = [];
+	let userGroups: { id: string; name: string; games }[] = [];
 	let errorMessage: string | null = null;
 
 	let username = '';
@@ -91,7 +91,7 @@
 
 <main>
 	{#if user}
-		<div class="actions">
+		<div class="header">
 			<h1>
 				Welcome {username || user?.displayName || user?.email}
 			</h1>
@@ -126,7 +126,7 @@
 			<h2>Your Groups</h2>
 			<ul>
 				{#each userGroups as group (group.id)}
-					<li><strong>{group.name}</strong> <span>{group.id}</span></li>
+					<li><a href="/dashboard/{group.id}/">{group.name}</a> <span>{group.id}</span></li>
 				{/each}
 			</ul>
 		</div>
@@ -150,43 +150,8 @@
 </main>
 
 <style>
-	.actions {
-		display: flex;
-		align-items: center;
-		gap: 10px;
-		padding-block: 5px 10px;
-		border-bottom: 1px solid #00000022;
-		margin-block-end: 20px;
-	}
-	h1 {
-		font-size: 1.4rem;
-		margin-inline-end: auto;
-	}
-	h2 {
-		font-size: 1.2rem;
-		color: #666;
-	}
-
-	fieldset{
-		border:none;
-		display: flex;
-		align-items: center;
-		gap:10px;
-		padding:0;
-	}
-	input {
-		width: 100%;
-		padding: 10px;
-		margin: 10px 0;
-		border: 1px solid #ccc;
-		border-radius: 4px;
-		transition: border-color 0.3s;
-	}
-
-	input:focus {
-		border-color: #007bff;
-		outline: none;
-	}
+	
+	
 
 	ul {
 		list-style-type: none;
@@ -200,7 +165,8 @@
 		display: flex;
 		align-items: center;
 
-		& strong {
+		& a {
+			font-weight: bold;
 			margin-inline-end: auto;
 		}
 		& span {
