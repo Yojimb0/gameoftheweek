@@ -87,6 +87,8 @@
 			alert('Could not set username. Please try again.');
 		}
 	};
+
+	
 </script>
 
 <main>
