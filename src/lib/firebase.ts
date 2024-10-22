@@ -35,7 +35,7 @@ export const logOut = async () => {
 
 
 // GROUPS
-const db = getFirestore(app);
+export const db = getFirestore(app);
 export const createGroup = async (groupName: string, userId: string): Promise<string> => {
   const groupRef = await addDoc(collection(db, "groups"), {
     name: groupName,
